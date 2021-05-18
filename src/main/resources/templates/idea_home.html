@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<link href="../static/users.css" th:href="@{/users.css}" rel="stylesheet" type="text/css">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+	<title>LightBulb/Ideas</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" th:object="${user} " th:text="${#authentication.getPrincipal().getUsername()}" href="#"></a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="@/dashboard">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/idea_home}">Ideas</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/users}">Users</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/login}">Logout</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	        <button class="btn btn-outline-success" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+
+    <div class="container">
+        <h1>Idea Home</h1>
+        <table class="table table-striped">
+        <a class="btn btn-primary" th:href="@{'/idea_register'}">Add</a>
+		    <thead>
+		        <tr>
+		            <th scope="col"> Title </th>
+		            <th scope="col"> Description </th>
+		            <!--
+		            <th scope="col"> Middle name </th>
+		            <th scope="col"> Last name </th>
+		            <th> Gender </th>
+		            <th scope="col"> D.O.B </th>
+		            <th scope="col"> Mobile Number </th>
+		            <th scope="col"> Home Phone </th>
+		            <th scope="col"> Email </th>
+		            <th scope="col"> Secondary Email </th>
+		            -->
+		            <th scope="col" colspan="2"></th>
+		        </tr>
+		    </thead>
+		    <tbody>
+			<tr th:if="${ideas.empty}">
+		            <td colspan="2"> No Ideas Available </td>
+		        </tr>
+		        <tr th:each="idea : ${ideas}">
+		            <td><span th:text="${idea.title}"> Title</span></td>
+		            <td><span th:text="${idea.description}"> Description </span></td>
+		            <!--
+		            <td><span th:text="${user.middleName}"> MiddleName </span></td>
+		            <td><span th:text="${user.lastName}"> LastName </span></td>
+		            <td><span th:text="${user.gender}"> Gender </span></td>
+		            <td><span th:text="${user.dateOfBirth}"> DateOfBirth </span></td>
+		            <td><span th:text="${user.primaryPhone}"> MobilePhone </span></td>
+		            <td><span th:text="${user.secondaryPhone}"> HomePhone </span></td>
+		            <td><span th:text="${user.primaryEmail}"> Email </span></td>
+		            <td><span th:text="${user.secondaryEmail}"> SecondaryEmail </span></td>
+		            -->
+		            <form>
+		            <td>
+		            <a th:href="@{'/edit_idea/' + ${idea.ideaId}}">Edit</a>
+		            &nbsp;&nbsp;&nbsp;&nbsp;
+		            <a th:href="@{'/delete_idea/' + ${idea.ideaId}}">Delete</a>
+		            </td>
+		            </form>
+		        </tr>
+		    </tbody>
+		        
+        </table>
+    </div>
+    
+    
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
+</html>

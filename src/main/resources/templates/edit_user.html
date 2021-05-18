@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<link href="../static/users.css" th:href="@{/users.css}" rel="stylesheet" type="text/css">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+<title>Edit user</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Navbar</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="@/dashboard">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/idea_home}">Ideas</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/users}">Users</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/login}">Logout</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	        <button class="btn btn-outline-success" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+		<div align="center"class="form-group">
+			<h1>Edit User</h1>
+			<div class="col-md-12">
+			<form action="#" th:action="@{/registration}" method="post" th:object="${user}">
+				<div class="row">
+					<label>User Id:</label>
+					<input class="form-control" type="text" th:field="*{globalUserId}" readonly="readonly"/>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label>
+							User Name:	
+						</label>
+						<input class="form-control"  type="text" th:field="*{userName}" readonly="readonly"/>
+					</div>
+					<div class="col-md-6">
+						<input class="form-control"  type="hidden" th:field="*{password}" readonly="readonly"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+							<label>
+														First Name:
+													</label>
+													<input class="form-control"  type="text" th:field="*{firstName}" readonly="readonly"/>
+					</div>
+					<div class="col-md-6">
+													<label>
+														Middle Name:
+													</label>
+													<input class="form-control"  type="text" th:field="*{middleName}" readonly="readonly"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+													<label>
+													
+														Last Name:
+													</label>
+													<input class="form-control"  type="text" th:field="*{lastName}" readonly="readonly"/>
+					</div>
+					<div class="col-md-6">
+													<label>
+														Other Name:
+													</label>
+													<input class="form-control"  type="text" th:field="*{otherName}" readonly="readonly"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+													<label>
+														Date of Birth:
+													</label>
+													<input class="form-control"  type="text" th:field="*{dateOfBirth}" readonly="readonly"/>
+					</div>
+					<div class="col-md-6">
+													<label>
+														Gender:
+													</label>
+													<input class="form-control"  type="text" th:field="*{gender.genderLabel}" readonly="readonly"/>
+													<label>
+														
+							
+					</div>						
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+					<label>
+														Mobile Phone:
+													</label>
+													<input class="form-control"  type="text" th:field="*{primaryPhone}" readonly="readonly"/>
+					</div>
+					<div class="col-md-6">
+													<label>
+														Secondary phone:
+													</label>
+													<input class="form-control"  type="text" th:field="*{secondaryPhone}" readonly="readonly"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+													<label>
+														Primary Email:
+													</label>
+													<input class="form-control"  type="text" th:field="*{primaryEmail}" readonly="readonly"/>
+					</div>
+					<div class="col-md-6">
+													<label>
+														Secondary Email:
+													</label>
+													<input class="form-control"  type="text" th:field="*{secondaryEmail}" readonly="readonly"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+													<label>
+														NIN:
+													</label>
+													<input class="form-control"  type="text" th:field="*{nin}" readonly="readonly"/>
+					</div>
+					<div class="col-md-6">
+													<label>
+														Card Number:
+													</label>
+													<input class="form-control"  type="text" th:field="*{cardNumber}" readonly="readonly"/>
+					</div>
+				</div>
+													<!--<!--
+														Role:
+													</label>
+													<input class="form-control"  type="text" th:field="*{roleName}"/><label>
+														Nationality:
+													</label>
+													<input class="form-control"  type="text" th:field="*{nationality}"/><label>
+														Country of residence:
+													</label>
+													<input class="form-control"  type="text" th:field="*{countryName}"/><label>
+														Native Language:
+													</label>
+													<input class="form-control"  type="text" th:field="*{nativeLanguage}"/>-->
+				
+				
+				
+				
+				 
+		        <button class="btn btn-primary" type="submit">Submit</button> 
+			
+			</form>
+		</div>
+</body>
+</html>

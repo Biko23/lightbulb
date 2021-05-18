@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+    <link href="css/styles.css" rel="stylesheet" />
+	<link href="../static/css/bootstrap.min.css" th:href="@{/bootstrap.min.js}" rel="stylesheet" type="text/css">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+<title>IdeaMs</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#"></a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="@/dashboard">Home</a>
+	        </li>
+	        
+	        <!-- Not required at registration page
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/idea_home}">Ideas</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/users}">Users</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/login}">Logout</a>
+	        </li>
+	        -->
+	        
+	      </ul>
+	      <form class="d-flex">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	        <button class="btn btn-outline-success" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+		<div align="center"class="form-group">
+		
+      <div class="row">
+      	<div class="col-md-8 order-md-1">
+			<h1>User Registeration</h1>
+			<form action="#" th:action="@{/registration}" method="post" th:object="${user}">
+				<span>
+              <div class="col-md-6 mb-3">
+					<input class="form-control" type="text" th:field="*{userName}" placeholder="Username" /><br/>
+					<input class="form-control" type="password" th:field="*{password}" placeholder="Password" />
+					<input class="form-control" type="password" field="*{password}" placeholder="Confirm Password" /><br/>
+              </div>
+				</span>
+				<span>
+				
+              <div class="col-md-6 mb-3">
+	                <select class="custom-select d-block w-100" id="prefix" name="prefixId">
+	                  <option value="">Title</option>
+	                  <option th:each="prefix: ${prefixes}"
+			                  th:value="${prefix.prefixId}"
+			                  th:text="${prefix.prefixName}">
+			          </option>
+	                </select>
+		        <input class="form-control" type="text" th:field="*{firstName}" placeholder="First Name" />
+		        
+		        <input class="form-control" type="text" th:field="*{middleName}" placeholder="Middle Name" /><br/>
+		        
+		        <input class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name" />
+		        
+		        <input class="form-control" type="text" th:field="*{otherName}" placeholder="Other Name" /><br/>
+		
+		        <label>Date of Birth:</label>
+		        <input class="form-control" type="Date" th:field="*{dateOfBirth}"/>
+		        
+		                <select class="custom-select d-block w-100" id="gender" name="genderId">
+		                  <option value="">Gender</option>
+		                  <option th:each="gender: ${genders}"
+				                  th:value="${gender.genderId}"
+				                  th:text="${gender.genderLabel}">
+				          </option>
+		                </select>
+              </div>
+				</span>
+				<span>
+	              <div class="col-md-6 mb-3">
+		                <select class="custom-select d-block w-100" id="country" name="countryId">
+		                  <option value="">Country of residence</option>
+		                  <option th:each="country: ${countries}"
+				                  th:value="${country.countryId}"
+				                  th:text="${country.countryName}">
+				          </option>
+		                </select>
+	              </div>
+				</span>
+				<div>
+					<ul>
+						<li th:each="role: ${roles}">
+							<input type="checkbox" th:value="${role.role_id}"/>
+							<label th:text="${role.roleName}">
+						</li>
+					
+					</ul>
+            	</div>
+				<!--
+		        <input type="text" field="*{nin}" placeholder="Country of Residence" />
+		        
+		        <input type="text" th:field="*{nationality}" placeholder="Nationality" />
+		        
+		        <input type="text" field="*{nin}" placeholder="Native Language" /><br/>
+		        		        		        
+		        <input type="text" th:field="*{nin}"  placeholder="NIN" />
+		        
+		        <input type="text" th:field="*{nin}" placeholder="Card Number" /><br/>
+				</span>-->
+				
+				<span>
+              <div class="col-md-6 mb-3">		        
+		        <input class="form-control" type="text" th:field="*{primaryPhone}"  placeholder="Mobile Phone" />
+		        
+		        <input class="form-control" type="text" th:field="*{secondaryPhone}"  placeholder="Secondary phone"/><br/>
+		        
+		        <input class="form-control" type="text" th:field="*{primaryEmail}" placeholder="Primary Email" />
+		        
+		        <input class="form-control" type="text" th:field="*{secondaryEmail}" placeholder="Secondary Email" /><br/>
+              </div>
+				</span>
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 <!--
+		 
+		        <label>E-mail:</label>
+		        <input type="text" th:field="*{email}" /><br/>
+		 
+		        <label>Password:</label>
+		        <input type="password" th:field="*{password}" /><br/>
+		 
+		        <label>Birthday (yyyy-mm-dd):</label>
+		        <input type="text" th:field="*{birthday}" /><br/>
+		 
+		        <label>Profession:</label>
+		        <select th:field="*{profession}">
+		            <option th:each="p : ${listProfession}" th:value="${p}" th:text="${p}" />
+		        </select>
+		        <br/>
+		 
+		        <label>Married?</label>
+		        <input type="checkbox" th:field="*{married}" /><br/>
+		 
+		        <label>Note:</label>
+		        <textarea rows="5" cols="25" th:field="*{note}"></textarea>
+		        <br/>
+		        -->
+		 
+		        <button type="submit">Register</button> 
+			
+			</form>
+      	</div>
+      </div>
+      
+		</div>
+</body>
+</html>

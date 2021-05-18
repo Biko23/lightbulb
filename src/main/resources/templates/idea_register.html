@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><!--
+<head>
+	<meta charset="ISO-8859-1">
+	<link href="../static/users.css" th:href="@{/users.css}" rel="stylesheet" type="text/css">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+<title>Idea_reg</title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" th:object="${user} " th:text="${#authentication.getPrincipal().getUsername()}" - href="#">Navbar</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="#">Ideas</a>
+	        </li>
+	      </ul>
+	      <form class="d-flex">
+	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+	        <button class="btn btn-outline-success" type="submit">Search</button>
+	      </form>
+	    </div>
+	  </div>
+	</nav>
+		<div align="center"class="form-group mb-3">
+		
+			<h1>Idea Registeration</h1>
+			<form  class="card" action="#" th:action="@{/idea_register}" method="post" th:object="${idea}">
+				<span class="input-group">
+					<input class="form-control" type="text" th:field="*{title}" placeholder="Title" /><br/>
+					<input class="form-control"  type="text" th:field="*{description}" placeholder="Description" />
+					<input class="form-control"  type="text" field="*{executiveSummary}" placeholder="Executive summary" /><br/>
+					<input class="form-control"  type="text" th:field="*{backgroundIdeaDescription}" placeholder="Background" />
+			        <input class="form-control"  type="text" th:field="*{categoryId}" placeholder="Category" /><br/>
+				</span>
+		        <button class="btn btn-primary" type="submit">Submit</button> 
+			
+			</form>
+		</div>
+		-->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="ISO-8859-1">
+	<link href="../static/users.css" th:href="@{/users.css}" rel="stylesheet" type="text/css">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+	<title>Idea_reg</title>
+  </head>
+
+  <body class="bg-light">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" th:object="${user} " th:text="${#authentication.getPrincipal().getUsername()}" - href="#">Navbar</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="@/dashboard">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/idea_home}">Ideas</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/users}">Users</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/login}">Logout</a>
+	        </li>
+	        </ul>
+	    </div>
+	  </div>
+	</nav>
+    <div style="background-image: url('images/creativity.jpg'); background-size: 100%" >
+    <div style="background-image: url('images/creativity.jpg'); background-size: 100%" class="container">
+    	<div class="py-5 text-center">
+      		<h2 style="color: lightblue;">Idea Registeration</h12>
+		</div>
+
+      <div class="row">
+      	<div class="col-md-8 order-md-1">
+          <h4 style="color: lightblue;" class="mb-3">Register Idea</h4>
+          <form  class="needs-validation" action="#" th:action="@{/idea_register}" method="post" th:object="${idea}" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+					<input  type="hidden"  th:value="${#authentication.getPrincipal().getGlobalUserId()}" name="globalUserId" /><!--
+					<input  type="text" sec:authentication="principal.globalUserId" name="globalUserId" />-->
+                <div class="invalid-feedback">
+                  Valid Title is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+	                <label style="color: lightblue;" for="title">Title</label>
+					<input class="form-control" id="title" type="text" th:field="*{title}" placeholder="Title" required />
+                <div class="invalid-feedback">
+                  Valid Title is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+				    <label style="color: lightblue;" for="description">Description</label>
+				    <textarea class="form-control" id="description" th:field="*{description}" placeholder="Description" ></textarea>
+                <div class="invalid-feedback">
+                  Valid Description is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+              		<label style="color: lightblue;" for="executiveummary">Executive Summary</label>
+				    <textarea class="form-control" id="executiveSummary" field="*{executiveSummary}" placeholder="Executive summary" ></textarea>
+				<div class="invalid-feedback">
+                  Valid Description is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+				    <label style="color: lightblue;" for="background">Background</label>
+				    <textarea class="form-control" id="background" th:field="*{backgroundIdeaDescription}" placeholder="Background" ></textarea>
+				<div class="invalid-feedback">
+                  Valid Description is required.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 mb-3">
+	                <label style="color: lightblue;" for="category">Category</label>
+	                
+	                <select class="custom-select d-block w-100" id="category" name="categoryId" required>
+		                  <option value="">Idea category</option>
+		                  <option th:each="category: ${categories}"
+				                  th:value="${category.categoryId}"
+				                  th:text="${category.categoryName}">
+				          </option>
+		                </select>
+                <div class="invalid-feedback">
+                  Please select a valid category.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+	                <label style="color: lightblue;" for="workflowStatus">Workflow status</label>
+	                <select class="custom-select d-block w-100" id="workflowStatus" required>
+	                  <option value="">Choose...</option>
+	                  <option>Ideation</option>
+	                  <option>Implementation</option>
+	                  <option>Testing</option>
+	                  <option>Market ready</option>
+	                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+	          <div class="col-md-3 mb-3">
+		              <label style="color: lightblue;" for="attachments" class="form-label">Add attachments</label>
+		              <input class="form-control" type="file" id="attachments" multiple />
+	          </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+    </div>
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+
+		
+		
+    
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
+</html>
