@@ -133,8 +133,8 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
 			name="user_roles",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id")
+			joinColumns = @JoinColumn(name = "global_user_id", referencedColumnName = "global_user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
 			)
 	private Set<Role> roles = new HashSet<>();
 	
@@ -146,6 +146,10 @@ public class User {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+	
+	public void addRole(Role role) {
+		this.roles.add(role);
 	}
 
 	public String getGlobalUserId() {

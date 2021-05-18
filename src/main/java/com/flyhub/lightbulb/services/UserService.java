@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,11 +15,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.flyhub.lightbulb.models.Role;
 import com.flyhub.lightbulb.models.User;
+import com.flyhub.lightbulb.repository.RoleRepository;
 import com.flyhub.lightbulb.repository.UserRepository;
 
 @Service
 public class UserService {
+	
+	@PersistenceContext
+	private EntityManager entityManager;
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -26,9 +34,11 @@ public class UserService {
 	
 	
 	public User addUser(User user) {
-		
+		Role rolely = entityManager.find(Role.class, 24);
+//		Role role = RoleRepository.class.
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setCreateDate(Calendar.getInstance());
+		user.addRole(rolely);
 		
 		return userRepository.save(user);
 	}

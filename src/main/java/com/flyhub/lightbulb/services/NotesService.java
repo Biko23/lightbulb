@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.flyhub.lightbulb.models.Notes;
+import com.flyhub.lightbulb.models.Note;
 import com.flyhub.lightbulb.repository.NotesRepository;
 
 @Service
@@ -15,17 +15,17 @@ public class NotesService {
 	@Autowired
 	private NotesRepository notesRepository;
 	
-	public List<Notes> getAllNotes(){
+	public List<Note> getAllNotes(){
 		
 		return notesRepository.findAll();
 	}
 	
-	public Notes addNotes(Notes notes) {
+	public Note addNotes(Note note) {
 		
-		return notesRepository.save(notes);
+		return notesRepository.save(note);
 	}
 	
-	public Optional<Notes> getNotesById(Integer noteId) {
+	public Optional<Note> getNotesById(Integer noteId) {
 		
 		return notesRepository.findById(noteId);
 	}
