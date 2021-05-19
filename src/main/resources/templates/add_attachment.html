@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="ISO-8859-1">
+	<link href="../static/users.css" th:href="@{/users.css}" rel="stylesheet" type="text/css">
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+	<title>Idea_reg</title>
+  </head>
+
+  <body class="bg-light">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" th:object="${user} " th:text="${#authentication.getPrincipal().getUsername()}" - href="#">Navbar</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="@/dashboard">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/idea_home}">Ideas</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/users}">Users</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" th:href="@{/login}">Logout</a>
+	        </li>
+	        </ul>
+	    </div>
+	  </div>
+	</nav>
+    <div style="background-image: url('images/creativity.jpg'); background-size: 100%" >
+    <div style="background-image: url('images/creativity.jpg'); background-size: 100%" class="container">
+    	<div class="py-5 text-center">
+      		<h2 style="color: lightblue;">Upload attachment</h12>
+		</div>
+
+      <div class="row">
+      	<div class="col-md-8 order-md-1">
+          <h4 style="color: lightblue;" class="mb-3">Register Idea</h4>
+          <form  class="needs-validation" th:action="@{/add_attachment}" method="post" enctype="multipart/form-data" th:object="${attachment}" novalidate>
+            <div class="row">
+	          <div class="col-md-6 mb-3">
+		              <label style="color: lightblue;" for="attachments" class="form-label">Add attachments</label>
+		              <input class="form-control" type="file" id="attachments" name="attachment" multiple />
+	          </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+    </div>
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+
+		
+		
+    
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
+</html>

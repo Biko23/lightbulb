@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,23 +19,50 @@ public class Note {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "note_id")
 	private Integer noteId;
+	
+	
+	
+	@ManyToOne
+	@JoinColumn(name="idea_id")
+	private Idea idea;
+//	@Column(name="idea_id")
+//	private String idea_id;
+//
+	public Idea getIdea() {
+		return idea;
+	}
 
+	public void setIdea(Idea idea) {
+		this.idea = idea;
+	}
+//
+//	public String getIdea_id() {
+//		return idea_id;
+//	}
+//
+//	public void setIdea_id(String idea_id) {
+//		this.idea_id = idea_id;
+//	}
+//
+//	
+//	
+	
 	@Column(name = "note_name")
-	private Integer noteName;
+	private String noteName;
 	@Column(name = "note_label")
-	private Integer noteLabel;
+	private String noteLabel;
 	@Column(name = "note_content")
-	private Integer noteContent;
+	private String noteContent;
 	@Column(name = "note_description")
-	private Integer noteDescription;
+	private String noteDescription;
 
 	// Audit fields
 	@Column(name = "note_status")
-	private Integer noteStatus;
+	private String noteStatus;
 	@Column(name = "sequence_number")
 	private Integer sequenceNumber;
-	@Column(name = "restrict_customization")
-	private boolean restrictCustomization;
+//	@Column(name = "restrict_customization")
+//	private boolean restrictCustomization;
 	@Column(name = "create_date")
 	private Date createdDate;
 	@Column(name = "created_by_global_user_id")
@@ -55,43 +84,43 @@ public class Note {
 		this.noteId = noteId;
 	}
 
-	public Integer getNoteName() {
+	public String getNoteName() {
 		return noteName;
 	}
 
-	public void setNoteName(Integer noteName) {
+	public void setNoteName(String noteName) {
 		this.noteName = noteName;
 	}
 
-	public Integer getNoteLabel() {
+	public String getNoteLabel() {
 		return noteLabel;
 	}
 
-	public void setNoteLabel(Integer noteLabel) {
+	public void setNoteLabel(String noteLabel) {
 		this.noteLabel = noteLabel;
 	}
 
-	public Integer getNoteContent() {
+	public String getNoteContent() {
 		return noteContent;
 	}
 
-	public void setNoteContent(Integer noteContent) {
+	public void setNoteContent(String noteContent) {
 		this.noteContent = noteContent;
 	}
 
-	public Integer getNoteDescription() {
+	public String getNoteDescription() {
 		return noteDescription;
 	}
 
-	public void setNoteDescription(Integer noteDescription) {
+	public void setNoteDescription(String noteDescription) {
 		this.noteDescription = noteDescription;
 	}
 
-	public Integer getNoteStatus() {
+	public String getNoteStatus() {
 		return noteStatus;
 	}
 
-	public void setNoteStatus(Integer noteStatus) {
+	public void setNoteStatus(String noteStatus) {
 		this.noteStatus = noteStatus;
 	}
 
@@ -103,13 +132,13 @@ public class Note {
 		this.sequenceNumber = sequenceNumber;
 	}
 
-	public boolean isRestrictCustomization() {
-		return restrictCustomization;
-	}
-
-	public void setRestrictCustomization(boolean restrictCustomization) {
-		this.restrictCustomization = restrictCustomization;
-	}
+//	public boolean isRestrictCustomization() {
+//		return restrictCustomization;
+//	}
+//
+//	public void setRestrictCustomization(boolean restrictCustomization) {
+//		this.restrictCustomization = restrictCustomization;
+//	}
 
 	public Date getCreatedDate() {
 		return createdDate;

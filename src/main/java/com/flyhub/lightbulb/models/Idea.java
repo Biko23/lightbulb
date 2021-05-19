@@ -1,6 +1,7 @@
 package com.flyhub.lightbulb.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -34,6 +36,15 @@ public class Idea {
 	@Column(name="global_user_id")
 	private String globalUserId;
 	
+	@OneToMany(mappedBy = "idea")
+	List<Note> note;
+	
+	public List<Note> getNote() {
+		return note;
+	}
+	public void setNote(List<Note> note) {
+		this.note = note;
+	}
 	@Column(name="user_id")
 	private String userId;
 	@Column(name="title")

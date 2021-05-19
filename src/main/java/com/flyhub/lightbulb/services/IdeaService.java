@@ -36,8 +36,8 @@ public class IdeaService {
 		return ideaRepository.save(idea);
 	}
 	
-	public Optional<Idea> getIdeaById(String id){
-		return ideaRepository.findById(id);
+	public Optional<Idea> getIdeaById(String ideaId){
+		return ideaRepository.findById(ideaId);
 	}
 	
 	public Idea updateIdea(@PathVariable("ideaId") String ideaId, Idea idea){
