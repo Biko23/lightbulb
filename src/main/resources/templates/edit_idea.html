@@ -126,7 +126,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                    	<div class="card mb-4">
+                    	<div class="card ">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                                 Edit Idea
@@ -134,143 +134,37 @@
                             <div class="card-body">
                                 <div class="table-responsive">
 									<form th:action="@{/idea_register}" method="POST" th:object="${idea}">
-													<label>Idea Id:</label>
-													<input class="form-control" type="text" th:field="*{IdeaId}" readonly="readonly"/>
-													<label>Title:</label>
-													<input class="form-control"  type="text" th:field="*{title}"/>
-													<label>Description:</label>
-													<input class="form-control"  type="text" th:field="*{description}"/>
-													<label>Executive Summary:</label>
-													<input class="form-control"  type="text" th:field="*{executiveSummary}"/>
-													<label>Background:</label>
-													<input class="form-control"  type="text" th:field="*{backgroundIdeaDescription}"/>
-													<label>UserId:</label>
-													<input class="form-control"  type="text" th:field="*{userId}"/>
-													<!--<label>Created on:</label>
-													<input class="form-control"  type="text" th:field="*{createdDate}"/>-->
-													<label>Modified reason:</label>
-													<input class="form-control"  type="text" th:field="*{modifiedReason}"/>
-													<label>Approval status:</label>
-													<input class="form-control"  type="text" th:field="*{approvalStatus}"/>
-													<label>workflow status:</label>
-													<input class="form-control"  type="text" th:field="*{workflowStatus}"/>
+										<label>Idea Id:</label>
+										<input class="form-control" type="text" th:field="*{IdeaId}" readonly="readonly" />
+										<label>Title:</label>
+										<input class="form-control" type="text" th:field="*{title}" />
+										<label>Description:</label>
+										<input class="form-control" type="text" th:field="*{description}" />
+										<label>Executive Summary:</label>
+										<input class="form-control" type="text" th:field="*{executiveSummary}" />
+										<label>Background:</label>
+										<input class="form-control" type="text" th:field="*{backgroundIdeaDescription}" />
+										<label>UserId:</label>
+										<input class="form-control" type="text" th:field="*{userId}" />
+										<!--<label>Created on:</label>
+										<input class="form-control"  type="text" th:field="*{createdDate}"/>-->
+										<label>Modified reason:</label>
+										<input class="form-control" type="text" th:field="*{modifiedReason}" />
+										<label>Approval status:</label>
+										<input class="form-control" type="text" th:field="*{approvalStatus}" />
+										<label>workflow status:</label>
+										<input class="form-control" type="text" th:field="*{workflowStatus}" />
 										
-										<!--<table class="table">
-											<tr>
-												<td>
-													Idea Id:
-												</td>
-												<td>
-													<input type="text" th:field="*{IdeaId}" readonly="readonly"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Title:
-												</td>
-												<td>
-													<input type="text" th:field="*{title}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Description:
-												</td>
-												<td>
-													<input type="text" th:field="*{description}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Executive Summary:
-												</td>
-												<td>
-													<input type="text" th:field="*{executiveSummary}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Background:
-												</td>
-												<td>
-													<input type="text" th:field="*{backgroundIdeaDescription}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Created by:
-												</td>
-												<td>
-													<input type="text" th:field="*{userId}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Created on:
-												</td>
-												<td>
-													<input type="Date" field="*{createdDate}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Reason for modification:
-												</td>
-												<td>
-													<input type="text" th:field="*{modifiedReason}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Approval status:
-												</td>
-												<td>
-													<input type="text" th:field="*{approvalStatus}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Status:
-												</td>
-												<td>
-													<input type="text" th:field="*{status}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													workflow status:
-												</td>
-												<td>
-													<input type="text" th:field="*{workflowStatus}"/>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													Add Attachments:
-												</td>
-												<td>
-													<input type="text" field="*{status}"/>
-												</td>
-											</tr>
-										</table>
-								 -->
-			 
-			 
-			 
-			 
-			 
-			 
-			 
-			        <button class="btn btn-primary" type="submit">Submit</button> 
+			       					 	<button class="btn btn-primary" type="submit">Submit</button> 
 				
-				</form>
-		</div>
-                    </div>
-                    </div>
-                </main>
-            </div>
+									</form>
+								</div>
+                   			 </div>
+                    	</div>
+                	</main>
+            	</div>
+    		</div>
     	</div>
-    </div>
     
     
     

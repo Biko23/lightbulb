@@ -1,226 +1,264 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"><!--
+<html xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
 	<meta charset="ISO-8859-1">
 	<link href="../static/users.css" th:href="@{/users.css}" rel="stylesheet" type="text/css">
+	<link href="css/styles.css" rel="stylesheet" />
+	<link href="../static/css/styles.css" th:href="@{/styles.css}" rel="stylesheet" type="text/css">
+	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+		crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+		crossorigin="anonymous"></script>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-<title>Idea_reg</title>
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+	<title>Idea register-LightBulb</title>
 </head>
-<body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <div class="container-fluid">
-	    <a class="navbar-brand" th:object="${user} " th:text="${#authentication.getPrincipal().getUsername()}" - href="#">Navbar</a>
-	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	    </button>
-	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+<body class="sb-nav-fixed">
+	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+		<a class="navbar-brand" th:object="${user} " th:text="${#authentication.getPrincipal().getUsername()}" href="#">Start Bootstrap</a>
+            <span sec:authentication="principal.authorities">Authority</span>
+            <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+	    
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            
+            
+            <ul class="navbar-nav ml-auto ml-md-0">
 	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="#">Home</a>
+	          <a class="nav-link" th:href="@{/logout}">Logout</a>
 	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="#">Ideas</a>
-	        </li>
-	      </ul>
-	      <form class="d-flex">
-	        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-	        <button class="btn btn-outline-success" type="submit">Search</button>
-	      </form>
-	    </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#!" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                </li>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#!">Settings</a>
+                    <a class="dropdown-item" href="#!">Activity Log</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="login.html">Logout</a>
+                </div>
+            </ul>
 	  </div>
 	</nav>
-		<div align="center"class="form-group mb-3">
-		
-			<h1>Idea Registeration</h1>
-			<form  class="card" action="#" th:action="@{/idea_register}" method="post" th:object="${idea}">
-				<span class="input-group">
-					<input class="form-control" type="text" th:field="*{title}" placeholder="Title" /><br/>
-					<input class="form-control"  type="text" th:field="*{description}" placeholder="Description" />
-					<input class="form-control"  type="text" field="*{executiveSummary}" placeholder="Executive summary" /><br/>
-					<input class="form-control"  type="text" th:field="*{backgroundIdeaDescription}" placeholder="Background" />
-			        <input class="form-control"  type="text" th:field="*{categoryId}" placeholder="Category" /><br/>
-				</span>
-		        <button class="btn btn-primary" type="submit">Submit</button> 
-			
-			</form>
-		</div>
-		-->
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta charset="ISO-8859-1">
-	<link href="../static/users.css" th:href="@{/users.css}" rel="stylesheet" type="text/css">
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-	<title>Idea_reg</title>
-  </head>
 
-  <body class="bg-light">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	  <div class="container-fluid">
-	    <a class="navbar-brand" th:object="${user} " th:text="${#authentication.getPrincipal().getUsername()}" - href="#">Navbar</a>
-	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	    </button>
-	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="@/dashboard">Home</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" th:href="@{/idea_home}">Ideas</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" th:href="@{/users}">Users</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" th:href="@{/login}">Logout</a>
-	        </li>
-	        </ul>
-	    </div>
-	  </div>
-	</nav>
-    <div style="background-image: url('images/creativity.jpg'); background-size: 100%" >
-    <div style="background-image: url('images/creativity.jpg'); background-size: 100%" class="container">
-    	<div class="py-5 text-center">
-      		<h2 style="color: lightblue;">Idea Registeration</h12>
-		</div>
 
-      <div class="row">
-      	<div class="col-md-8 order-md-1">
-          <h4 style="color: lightblue;" class="mb-3">Register Idea</h4>
-          <form  class="needs-validation" enctype="multipart/form-data" action="#" th:action="@{/idea_register}" method="post" th:object="${idea}" novalidate>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-					<input type="hidden"  th:value="${#authentication.getPrincipal().getGlobalUserId()}" name="globalUserId" /><!--
-					<input  type="text" sec:authentication="principal.globalUserId" name="globalUserId" />-->
-                
-              </div>
-              <div class="col-md-6 mb-3">
-	                <label style="color: lightblue;" for="title">Title</label>
-					<input class="form-control" id="title" type="text" th:field="*{title}" placeholder="Title" required />
-                <div class="invalid-feedback">
-                  Valid Title is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-				    <label style="color: lightblue;" for="description">Description</label>
-				    <textarea class="form-control" id="description" th:field="*{description}" placeholder="Description" ></textarea>
-                <div class="invalid-feedback">
-                  Valid Description is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-              		<label style="color: lightblue;" for="executiveummary">Executive Summary</label>
-				    <textarea class="form-control" id="executiveSummary" field="*{executiveSummary}" placeholder="Executive summary" ></textarea>
-				<div class="invalid-feedback">
-                  Valid Description is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-				    <label style="color: lightblue;" for="background">Background</label>
-				    <textarea class="form-control" id="background" th:field="*{backgroundIdeaDescription}" placeholder="Background" required></textarea>
-				<div class="invalid-feedback">
-                  Valid Background or problem statement is required.
-                </div>
-              </div>
+    <div class="container-fluid">
+    	<div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            
+							      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							        <li class="nav-item">
+							        <a class="nav-link"  href="@/dashboard">
+		                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+		                                Dashboard
+		                            </a>
+							        </li>
+							        <li class="nav-item">
+							          <a class="nav-link" th:href="@{/idea_home}">
+		                                <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
+		                                Ideas
+		                              </a>
+							        </li>
+							        <li class="nav-item">
+							          <a class="nav-link" th:href="@{/users}">							          
+		                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+		                                Users
+		                              </a>
+							        </li>
+							      </ul>
+                            
+                            
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div class="row">
-              <div class="col-md-5 mb-3">
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="py-5 text-center">
+      								<h2 style="color: skyblue;">Idea Registeration</h12>
+								</div>
+
+      							<div class="row">
+      								<div class="col-md-8 order-md-1">
+          								<h4 style="color: skyblue;" class="mb-3">Register Idea</h4>
+          								<form  class="needs-validation" enctype="multipart/form-data" action="#" th:action="@{/idea_register}" method="post" th:object="${idea}" novalidate>
+            								<div class="row">
+              									<div class="col-md-6 mb-3">
+													<input type="hidden"  th:value="${#authentication.getPrincipal().getGlobalUserId()}" name="globalUserId" />
+                								</div>
+              									<div class="col-md-6 mb-3">
+	                								<label style="color: skyblue;" for="title">Title</label>
+													<input class="form-control" id="title" type="text" th:field="*{title}" placeholder="Title" required />
+                									<div class="invalid-feedback">
+                  										Valid Title is required.
+                									</div>
+              									</div>
+              									<div class="col-md-6 mb-3">
+				    								<label style="color: skyblue;" for="description">Description</label>
+				    								<textarea class="form-control" id="description" th:field="*{description}" placeholder="Description" ></textarea>
+                									<div class="invalid-feedback">
+                  										Valid Description is required.
+                									</div>
+              									</div>
+              									<div class="col-md-6 mb-3">
+              										<label style="color: skyblue;" for="executiveummary">Executive Summary</label>
+				    								<textarea class="form-control" id="executiveSummary" field="*{executiveSummary}" placeholder="Executive summary" ></textarea>
+													<div class="invalid-feedback">
+                  										Valid Description is required.
+                									</div>
+              									</div>
+              									<div class="col-md-6 mb-3">
+				    								<label style="color: skyblue;" for="background">Background</label>
+				    								<textarea class="form-control" id="background" th:field="*{backgroundIdeaDescription}" placeholder="Background" required></textarea>
+													<div class="invalid-feedback">
+                  										Valid Background or problem statement is required.
+                									</div>
+              									</div>
+            								</div>
+            								<div class="row">
+              									<div class="col-md-5 mb-3">
               
               <!-- Just testing 
               <th:block th:each="cat: ${categories}">
               	<input type="radio" th:value="${cat.categoryId}"/>
               	<label th:text="${cat.categoryName}" />
               </th:block>-->
-	                <label style="color: lightblue;" for="category">Category</label>
-	                
-	                <select class="custom-select d-block w-100" id="category" name="categoryId" required>
-		                  <option th:each="category: ${categories}"
-				                  th:value="${category.categoryId}"
-				                  th:text="${category.categoryName}">
-				          </option>
-		                </select>
-                <div class="invalid-feedback">
-                  Please select a valid category.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-	                <label style="color: lightblue;" for="workflowStatus">Workflow status</label>
-	                <select class="custom-select d-block w-100" id="workflowStatus" required>
-	                  <option value="">Choose...</option>
-	                  <option>Ideation</option>
-	                  <option>Implementation</option>
-	                  <option>Testing</option>
-	                  <option>Market ready</option>
-	                </select>
-                <div class="invalid-feedback">
-                  Please provide a valid state.
-                </div>
-              </div>
-	          <div class="col-md-3 mb-3">
-		              <label style="color: lightblue;" for="attachments" class="form-label">Add attachments</label>
-		              <input class="form-control" type="file" id="attachments" name="attachment" multiple />
-	          </div>
-            </div>
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
+	                								<label style="color: skyblue;" for="category">Category</label>
+	                    							<select class="custom-select d-block w-100" id="category" name="categoryId" required>
+									                  <option th:each="category: ${categories}"
+											                  th:value="${category.categoryId}"
+											                  th:text="${category.categoryName}">
+											          </option>
+									                </select>
+									                <div class="invalid-feedback">
+									                  Please select a valid category.
+									                </div>
+									              </div>
+									              <div class="col-md-4 mb-3">
+									                <label style="color: skyblue;" for="workflowStatus">Workflow status</label>
+									                <select class="custom-select d-block w-100" id="workflowStatus" required>
+									                  <option value="">Choose...</option>
+									                  <option>Ideation</option>
+									                  <option>Implementation</option>
+									                  <option>Testing</option>
+									                  <option>Market ready</option>
+									                </select>
+									                <div class="invalid-feedback">
+									                  Please provide a valid state.
+									                </div>
+              									</div>
+	          									<div class="col-md-3 mb-3">
+									              <label style="color: skyblue;" for="attachments" class="form-label">Add attachments</label>
+									              <input class="form-control" type="file" id="attachments" name="attachment" multiple />
+	          									</div>
+            								</div>
+								            <hr class="mb-4">
+								            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+          								</form>
+      								</div>
+      							</div>
 
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
-    </div>
+      							<footer class="my-5 pt-5 text-muted text-center text-small">
+        							<p class="mb-1">&copy; 2017-2018 Company Name</p>
+        							<ul class="list-inline">
+							          <li class="list-inline-item"><a href="#">Privacy</a></li>
+							          <li class="list-inline-item"><a href="#">Terms</a></li>
+							          <li class="list-inline-item"><a href="#">Support</a></li>
+							        </ul>
+      							</footer>
+                </main>
+            </div>
+    	</div>
     </div>
 
     <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function () {
+			'use strict';
 
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
+			window.addEventListener('load', function () {
+				// Fetch all the forms we want to apply custom Bootstrap validation styles to
+				var forms = document.getElementsByClassName('needs-validation');
 
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
+				// Loop over them and prevent submission
+				var validation = Array.prototype.filter.call(forms, function (form) {
+					form.addEventListener('submit', function (event) {
+						if (form.checkValidity() === false) {
+							event.preventDefault();
+							event.stopPropagation();
+						}
+						form.classList.add('was-validated');
+					}, false);
+				});
+			}, false);
+		})();
+	</script>
 
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="js/chart-area-demo.js"></script>
+        <script src="js/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="js/datatables-demo.js"></script>
 		
 		
     

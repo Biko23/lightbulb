@@ -136,7 +136,12 @@
                 <div class="col-sm-10 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <a th:href="@{${idea.ideaId} + '/notes'}"class="btn btn-primary">Make note</a>
+                    
+                    <form th:action="@{'/view_idea/' + ${ideaId} + '/notes'}" method="POST" th:object="${newNotes}">
+                    	<input class="form-control" th:field="*{noteContent}" placeholder="Please take a note...."/>
+                    
+                      <button type="submit" class="btn btn-primary">save</button>
+                    </form>
                     	<hr>
                     <form th:action="@{/view_idea/{ideaId}}" th:object="${notes}">
                     	<th:block th:each="note: ${notes}">

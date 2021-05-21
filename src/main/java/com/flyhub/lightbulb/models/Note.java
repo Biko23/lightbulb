@@ -23,10 +23,10 @@ public class Note {
 	
 	
 	@ManyToOne
-	@JoinColumn(name="idea_id")
+	@JoinColumn(name="idea_id", insertable=false, updatable=false)
 	private Idea idea;
-//	@Column(name="idea_id")
-//	private String idea_id;
+	@Column(name="idea_id")
+	private String idea_id;
 //
 	public Idea getIdea() {
 		return idea;
@@ -35,14 +35,14 @@ public class Note {
 	public void setIdea(Idea idea) {
 		this.idea = idea;
 	}
-//
-//	public String getIdea_id() {
-//		return idea_id;
-//	}
-//
-//	public void setIdea_id(String idea_id) {
-//		this.idea_id = idea_id;
-//	}
+
+	public String getIdea_id() {
+		return idea_id;
+	}
+
+	public void setIdea_id(String idea_id) {
+		this.idea_id = idea_id;
+	}
 //
 //	
 //	

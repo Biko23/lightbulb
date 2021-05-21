@@ -36,6 +36,7 @@ public class UserService {
 	public User addUser(User user) {
 		Role rolely = entityManager.find(Role.class, 24);
 //		Role role = RoleRepository.class.
+		user.setFullName(user.getFirstName() + ' ' + user.getMiddleName() + ' ' + user.getLastName());
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setCreateDate(Calendar.getInstance());
 		user.addRole(rolely);

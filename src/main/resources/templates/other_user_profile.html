@@ -61,7 +61,7 @@
                     <div class="mt-3">
                     
 						<form action="#" th:action="@{/users/{globalUserId}}" method="get" th:object="${user}">
-                      		<h4  sec:authentication="principal.username">John Doe</h4>
+                      		<h4  th:text="*{userName}">John Doe</h4>
                       		<p  sec:authentication="principal.firstName">John Doe</p>
 						</form>
                       <button class="btn btn-primary">Follow</button>

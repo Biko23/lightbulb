@@ -23,7 +23,7 @@ public class ExceptionAdvice {
 	@ExceptionHandler(NoSuchElementException.class)
 	public ResponseEntity<String> handleNosuchElementException(NoSuchElementException noSuchElementException){
 		
-		return new ResponseEntity<String>("check your stuff", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<String>("The element was not found. Please check your database request.", HttpStatus.NOT_FOUND);
 	}
 	
 

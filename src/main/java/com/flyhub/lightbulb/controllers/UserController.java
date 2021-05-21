@@ -70,6 +70,15 @@ public class UserController {
 		return "user_profile";
 	}
 	
+	@GetMapping("/otheruser_profile/{globalUserId}")
+	public String showOtherUserProfile(@PathVariable(name="globalUserId") String globalUserId, Model model, Optional<User> user) {
+		
+		user = userService.getUserById(globalUserId);
+		User otherUser = user.get();
+		model.addAttribute("user", otherUser);
+		return "other_user_profile";
+	}
+	
 	@GetMapping("users/page/{pageNo}")
 	public String findPaginated(@PathVariable(value="pageNo") int pageNo, Model model) {
 		int pageSize = 4;
@@ -101,7 +110,7 @@ public class UserController {
 		return "register";
 	}
 	@PostMapping("registration")
-	public String registerUser(User user, Model model) {
+	public String registerUser(User user) {
 		userService.addUser(user);
 		return "redirect:/users";
 	}
